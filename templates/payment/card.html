@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+
+	
+	
+	<div class="page-content bg-white">
+		<!-- inner page banner -->
+		<div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
+			<div class="container">
+				<div class="page-banner-entry">
+					<br><br><br><br><br><h1 class="text-white">Create your card for watch courses and learn!</h1>
+				 </div>
+			</div>
+		</div>
+		<!-- Breadcrumb row -->
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="#">Home</a></li>
+					<li>Create_Card</li>
+				</ul>
+			</div>
+		</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<img src="{% static 'images/background/bg1.jpg' %}" alt="">
+			</div>
+			<div class="col-lg-6" style="margin-top:20px">
+		<form class="contact-bx" method="post">
+		{% csrf_token %}
+		{{ form|crispy }}
+	
+		
+		
+		<div class="d-grid gap-2">
+			<button class="btn btn-outline-success btn-lg btn-block" type="submit">Create the card</button>
+			
+		</div>
+	</div>
+	</div>	
+
+	</form>
+	</div>	
+
+
+{% endblock %}

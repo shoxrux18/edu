@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+
+	
+	<div class="page-content bg-white">
+		<!-- inner page banner -->
+		<div class="page-banner ovbl-dark" style="background-image:url('static/images/banner/banner2.jpg');">
+			<div class="container">
+				<div class="page-banner-entry">
+					<br><br><br><br><br><h1 class="text-white">Payment</h1>
+				 </div>
+			</div>
+		</div>
+		<!-- Breadcrumb row -->
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="#">Home</a></li>
+					<li>Payment</li>
+				</ul>
+			</div>
+		</div>
+	<div class="container">
+		<div class="row">
+			
+					<div class="col-lg-6">							
+						<img src="{% static 'images/background/bg1.jpg' %}" alt="">
+					</div>
+					<div class="col-lg-6" style="margin-top:30px">
+						<div class="heading-bx left">
+							<h2 class="title-head">Welcome <span>{{ user.username }}</span></h2>
+						</div>
+						{% for row in card %}
+							<p>To do payment pls add your card <a href="{% url 'main:card' row.id %}" style="color:blue">Card Add</a></p>
+						{% endfor %}
+						<form class="contact-bx" method="post">
+						{% csrf_token %}
+						{{ form|crispy }}
+						
+						{% for row in card %}
+						
+						
+						Course price: ${{ row.price }}
+						<br>
+						<br>
+						
+						<div class="d-grid gap-2">
+							<button class="btn btn-outline-success btn-lg btn-block" type="submit">Go to Courses</button>
+							
+						</div>
+						{% endfor %}
+						</form>
+					</div>
+				
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="page-content bg-white">
+	<!-- inner page banner -->
+	<div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
+		<div class="container">
+			<div class="page-banner-entry">
+				<br><br><br><br>
+				<h1 class="text-white">Courses Details</h1>
+			 </div>
+		</div>
+	</div>
+	<!-- Breadcrumb row -->
+	<div class="breadcrumb-row">
+		<div class="container">
+			<ul class="list-inline">
+				<li><a href="#">Home</a></li>
+				
+				<li>Courses Details</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Breadcrumb row END -->
+	<!-- inner page banner END -->
+	<div class="container">
+		<div class="row">
+			{% for row in course_id %}
+				{% for video in video %}
+				{% for user in row.user.all %}
+					<div class="col-lg-6">							
+						<video width = "500" height = "500" autoplay controls >
+							<source src = "{{ video.url }}" type = "video/mp4">
+							This browser doesn't support video tag.
+						</video>
+					</div>
+					<div class="col-lg-6" style="margin-top:110px">
+						<div class="card mb-3" style="max-width: 540px;">
+							<div class="row g-0">
+							  <div class="col-md-4">
+								<img src="{{ user.photo.url }}" class="img-fluid rounded-start" alt="...">
+								<h4 class="card-title"><strong>Author:</strong> {{ user.username }}</h4>
+							  </div>
+							  <div class="col-md-8">
+								<div class="card-body">
+								  <h4 class="card-title"><strong>Price: {{ row.price }}</strong></h4>
+								  <h5 class="card-title">This Course Includes:</h5>
+								  <p >{{ row.duration }} on-demand video</p>
+								  <p >Access on mobile and TV</p>
+								  
+								  <p >Certificate of completion</p>
+								  <br>
+								</div>
+								
+							  </div>
+							  
+							</div>
+							<div class="d-grid gap-2">
+								<a  href="{% url 'main:payment' row.id %}" class="btn btn-outline-success btn-lg btn-block" type="submit">Buy now this course</a>
+								
+							</div>
+						  </div>
+					</div>
+				{% endfor %}
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

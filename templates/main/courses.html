@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+
+	
+							
+	<div class="page-content bg-white">
+		<!-- inner page banner -->
+		<div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner2.jpg);">
+			<div class="container">
+				<div class="page-banner-entry">
+					<br><br><br><br><br><h1 class="text-white">Your Course</h1>
+				 </div>
+			</div>
+		</div>
+		<!-- Breadcrumb row -->
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="#">Home</a></li>
+					<li>course_page</li>
+				</ul>
+			</div>
+		</div>
+	<div class="container">
+		
+			
+					
+						<br>
+						<div class="heading-bx left">
+							<h2 class="title-head">Welcome <span>{{ user.username }}</span></h2>
+						</div>
+						<div class="row">
+						{% for row in courses %}
+							<div class="col-lg-6">									
+								<video controls width = "500" height = "500" autoplay  >
+									<source src = "{{ row.video.url }}" type = "video/mp4">
+									This browser doesn't support video tag.
+								</video>
+							</div>
+						{% endfor %}
+						
+						
+						
+					</div>
+				
+		</div>
+	</div>
+
+{% endblock %}
+
+						
