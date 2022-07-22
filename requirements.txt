@@ -1,0 +1,12 @@
+asgiref==3.5.0
+backports.zoneinfo==0.2.1
+crispy-bootstrap5==0.6
+Django==4.0.3
+django-crispy-forms==1.14.0
+django-jazzmin==2.5.0
+django-messages==0.6.0
+mysqlclient==2.1.0
+Pillow==9.1.0
+pkg_resources==0.0.0
+sqlparse==0.4.2
+validate-email==1.3
